@@ -12,7 +12,9 @@ class SearchBar extends React.Component{
     this.setState({term: e.target.value});
   }
   search(){
-    this.props.onSearch(this.state.term);
+    if(this.state !== null && this.state.term !== undefined){
+      this.props.onSearch(this.state.term);
+    }
   }
   render(){
     return (
