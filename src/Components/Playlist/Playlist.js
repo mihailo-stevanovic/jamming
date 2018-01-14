@@ -22,7 +22,7 @@ class Playlist extends React.Component{
     return(
     <div className="Playlist">
       <input value={this.props.playlistName} onChange={this.handleNameChange}/>
-      <TrackList tracks={this.props.playlistTracks} onRemove={this.props.onRemove} isRemoval={true} />
+      <TrackList tracks={this.props.playlistTracks} onRemove={this.props.onRemove} isRemoval={true} onPlay={this.props.onPlay} />
       {this.renderSaveButton()}
     </div>
   );
@@ -35,6 +35,7 @@ Playlist.propTypes = {
   onRemove: PropTypes.func.isRequired,
   onNameChange: PropTypes.func.isRequired,
   onSave: PropTypes.func.isRequired,
+  onPlay: PropTypes.func.isRequired,
   savingToSpotify: PropTypes.bool.isRequired
 };
 

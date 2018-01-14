@@ -8,7 +8,7 @@ class SearchResults extends React.Component{
     return(
     <div className="SearchResults">
       <h2>Results</h2>
-      <TrackList tracks={this.props.searchResults} onAdd={this.props.onAdd} isRemoval={false} />
+      <TrackList tracks={this.props.searchResults} onAdd={this.props.onAdd} isRemoval={false} onPlay={this.props.onPlay} />
     </div>
   );
   }
@@ -16,7 +16,8 @@ class SearchResults extends React.Component{
 
 SearchResults.propTypes = {
   searchResults: PropTypes.array.isRequired,
-  onAdd: PropTypes.func.isRequired
+  onAdd: PropTypes.func.isRequired,
+  onPlay: PropTypes.func.isRequired
 };
 
 export default SearchResults;

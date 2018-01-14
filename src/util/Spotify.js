@@ -36,7 +36,9 @@ let Spotify = {
             name: track.name,
             artist: track.artists[0].name,
             album: track.album.name,
-            uri: track.uri
+            uri: track.uri,
+            previewUrl: track.preview_url,
+            spotifyLink: track.external_urls.spotify
           }
         })
       }, rejection => {
@@ -48,7 +50,6 @@ let Spotify = {
       return [];
     }
   },
-  /* Continue Here */
   savePlaylist: async function(playlistName, trackUris){
     if(playlistName==='' || trackUris.length === 0){
       return;
@@ -96,7 +97,7 @@ let Spotify = {
         method: 'POST',
         body: JSON.stringify({"uris": trackUris}),
         headers: headers
-      }).then(response => {        
+      }).then(response => {
         return response.ok;
       }, rejection => {
         throw new Error(rejection);
